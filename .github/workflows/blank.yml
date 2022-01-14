@@ -44,7 +44,6 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             YOUR VPS IS READY SIR
-      id: cmd /c loop.bat
     - name: All Done! You can close Tab now! Maximum VM time:6h.
       run: cmd /c loop.bat       
 
