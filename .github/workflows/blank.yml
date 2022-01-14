@@ -34,17 +34,26 @@ jobs:
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - name: Create Tunnel
-      run: sc start ngrok
+      run: sc start ngrok 
+    - name: Simple Telegram message
+      uses: ivanmilov/telegram_notify_action@v1
+      with:
+         api_key: ${{ secrets.TELEGRAM_TO }}
+         chat_id: ${{ secrets.TELEGRAM_TOKEN }}
+         message:
+            YOUR VPS IS READY SIR
+            IP
+            Check NGORK Tunnel 
+            Username
+            Administrator
+            Password
+            Thuonghai001
     - name: Connect to your RDP 2core-7GB Ram.
       run: cmd /c NGROK-CHECK.bat    
-    - name: send telegram message on push
-      uses: appleboy/telegram-action@master
-      with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
-            YOUR VPS IS READY SIR
     - name: All Done! You can close Tab now! Maximum VM time:6h.
-      run: cmd /c loop.bat       
+      run: cmd /c loop.bat  
+    
+
+         
 
   
