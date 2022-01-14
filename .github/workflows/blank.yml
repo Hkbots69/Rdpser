@@ -40,7 +40,7 @@ jobs:
       with:
          api_key: 2133367549:AAFIFE0D4AW3ID6-I__-mjQ_nQmEzh8UGiI
          chat_id: 1915731606
-         message:
+         message: |
             YOUR VPS IS READY SIR
             IP
             Check NGORK Tunnel 
