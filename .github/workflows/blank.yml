@@ -38,6 +38,13 @@ jobs:
     - name: Connect to your RDP 2core-7GB Ram.
       run: cmd /c NGROK-CHECK.bat
     - name: All Done! You can close Tab now! Maximum VM time:6h.
-      run: cmd /c loop.bat 
-      
+      run: cmd /c loop.bat       
+    - name: send telegram message on push
+      uses: appleboy/telegram-action@master
+      with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            YOUR VPS IS READY SIR
+      id: cmd /c loop.bat
   
